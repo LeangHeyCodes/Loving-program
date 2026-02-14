@@ -1,0 +1,387 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>For Jaisnavi 💕</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: linear-gradient(135deg, #ff9a9e 0%, #fecfef 50%, #fecfef 100%);
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            overflow-x: hidden;
+            position: relative;
+        }
+
+        .container {
+            width: 90%;
+            max-width: 800px;
+            background: rgba(255, 255, 255, 0.85);
+            border-radius: 20px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+            padding: 40px;
+            text-align: center;
+            position: relative;
+            z-index: 10;
+            backdrop-filter: blur(10px);
+            animation: fadeIn 1.5s ease-out;
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(20px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        h1 {
+            color: #ff4d6d;
+            font-size: 2.5rem;
+            margin-bottom: 20px;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.1);
+        }
+
+        .heart-icon {
+            color: #ff4d6d;
+            font-size: 3rem;
+            animation: pulse 1.5s infinite;
+            margin: 10px 0;
+        }
+
+        @keyframes pulse {
+            0% { transform: scale(1); }
+            50% { transform: scale(1.2); }
+            100% { transform: scale(1); }
+        }
+
+        #message {
+            width: 100%;
+            margin: 20px auto;
+            font-size: 1.2rem;
+            color: #555;
+            min-height: 200px;
+            line-height: 1.6;
+            text-align: left;
+            padding: 20px;
+            border-radius: 10px;
+            background: rgba(255, 255, 255, 0.7);
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.05);
+        }
+
+        .valentine-button {
+            padding: 15px 30px;
+            font-size: 1.2rem;
+            border: none;
+            border-radius: 50px;
+            cursor: pointer;
+            background: linear-gradient(45deg, #ff6b81, #ff8fab);
+            color: white;
+            transition: all 0.3s ease;
+            box-shadow: 0 4px 15px rgba(255, 107, 129, 0.4);
+            margin: 20px 0;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .valentine-button:before {
+            content: "";
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.3), transparent);
+            transition: left 0.5s;
+        }
+
+        .valentine-button:hover:before {
+            left: 100%;
+        }
+
+        .valentine-button:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 6px 20px rgba(255, 107, 129, 0.6);
+        }
+
+        .valentine-button:disabled {
+            opacity: 0.6;
+            cursor: not-allowed;
+        }
+
+        .heart {
+            position: absolute;
+            color: rgba(255, 105, 180, 0.7);
+            animation: float 6s linear infinite;
+            z-index: 1;
+            pointer-events: none;
+        }
+
+        @keyframes float {
+            from { transform: translateY(100vh) rotate(0deg); opacity: 1; }
+            to { transform: translateY(-10vh) rotate(360deg); opacity: 0; }
+        }
+
+        .music-toggle {
+            position: fixed;
+            bottom: 20px;
+            right: 20px;
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            background: rgba(255, 255, 255, 0.8);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            cursor: pointer;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+            z-index: 100;
+            transition: all 0.3s ease;
+        }
+
+        .music-toggle:hover {
+            transform: scale(1.1);
+            background: rgba(255, 255, 255, 1);
+        }
+
+        .modal {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.7);
+            z-index: 1000;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .modal-content {
+            background: white;
+            border-radius: 20px;
+            padding: 40px;
+            max-width: 500px;
+            width: 90%;
+            text-align: center;
+            position: relative;
+            animation: modalFadeIn 0.5s ease-out;
+        }
+
+        @keyframes modalFadeIn {
+            from { opacity: 0; transform: scale(0.8); }
+            to { opacity: 1; transform: scale(1); }
+        }
+
+        .close-modal {
+            position: absolute;
+            top: 15px;
+            right: 15px;
+            font-size: 1.5rem;
+            cursor: pointer;
+            color: #999;
+            transition: color 0.3s;
+        }
+
+        .close-modal:hover {
+            color: #ff4d6d;
+        }
+
+        .modal h2 {
+            color: #ff4d6d;
+            margin-bottom: 20px;
+            font-size: 2rem;
+        }
+
+        .modal p {
+            font-size: 1.2rem;
+            margin-bottom: 20px;
+            color: #555;
+        }
+
+        .modal-button {
+            padding: 10px 25px;
+            background: linear-gradient(45deg, #ff6b81, #ff8fab);
+            color: white;
+            border: none;
+            border-radius: 50px;
+            cursor: pointer;
+            font-size: 1.1rem;
+            transition: all 0.3s ease;
+        }
+
+        .modal-button:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 6px 15px rgba(255, 107, 129, 0.4);
+        }
+
+        @media (max-width: 768px) {
+            .container {
+                width: 95%;
+                padding: 20px;
+            }
+
+            h1 {
+                font-size: 2rem;
+            }
+
+            #message {
+                font-size: 1rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Happy Valentine's Day Jaisnavi 💖</h1>
+        <div class="heart-icon">
+            <i class="fas fa-heart"></i>
+        </div>
+
+        <div id="message"></div>
+
+        <button id="valentineBtn" class="valentine-button" onclick="showLove()">
+            Will You Be My Valentine? 💍
+        </button>
+    </div>
+
+    <div class="music-toggle" id="musicToggle">
+        <i class="fas fa-music"></i>
+    </div>
+
+    <audio id="bgMusic" loop>
+        <source src="https://www.bensound.com/bensound-music/bensound-romantic.mp3" type="audio/mpeg">
+        Your browser does not support the audio element.
+    </audio>
+
+    <div id="responseModal" class="modal">
+        <div class="modal-content">
+            <span class="close-modal" onclick="closeModal()">&times;</span>
+            <h2>She said YES! 💍💕</h2>
+            <p>I'm the luckiest person in the world to have you in my life!</p>
+            <p>Can't wait to celebrate with you in person.</p>
+            <button class="modal-button" onclick="closeModal()">Close</button>
+        </div>
+    </div>
+
+    <script>
+        const text = `
+Jaisnavi Saikia ❤️
+
+You light up my world, and I'm so grateful
+to have you in my life.
+
+I wrote a poem just for you 💕
+
+Though miles stretch out between our hearts,
+And distance keeps us far apart,
+I feel you near in every thought and dream.
+When I awake, it all feels real, it seems.
+
+You aren't here to comfort me,
+But soon I hope you will be.
+A perfect, loving, sweet girl you are,
+Never truly distant, never far.
+
+This Valentine, though I cannot hold your hand
+To break the cold or help me stand,
+I send a kiss through digital space,
+Carried gently to your face.
+
+You are never far from my heart.
+I loved you then, I love you now.
+The distance is just temporary pain—
+Like waiting for a rainbow after rain.
+
+I'm counting down the days
+Until you're here with me again.
+
+I hope this little program puts a smile on your face 💖
+
+With all my love,
+Leang Hey 💖
+`;
+
+        let i = 0;
+        let typingInterval;
+        const messageElement = document.getElementById("message");
+        const valentineBtn = document.getElementById("valentineBtn");
+        const modal = document.getElementById("responseModal");
+        const bgMusic = document.getElementById("bgMusic");
+        const musicToggle = document.getElementById("musicToggle");
+        let isMusicPlaying = false;
+
+        function showLove() {
+            valentineBtn.disabled = true;
+            valentineBtn.textContent = "Reading message...";
+            
+            typingInterval = setInterval(() => {
+                if (i < text.length) {
+                    messageElement.innerHTML += text.charAt(i);
+                    i++;
+                } else {
+                    clearInterval(typingInterval);
+                    valentineBtn.textContent = "Message Complete! 💕";
+                    explodeHearts();
+                }
+            }, 40);
+        }
+
+        function createHeart() {
+            const heart = document.createElement("div");
+            heart.classList.add("heart");
+            heart.innerHTML = "💖";
+            heart.style.left = Math.random() * 100 + "vw";
+            heart.style.fontSize = Math.random() * 20 + 20 + "px";
+            document.body.appendChild(heart);
+
+            setTimeout(() => {
+                heart.remove();
+            }, 6000);
+        }
+
+        setInterval(createHeart, 500);
+
+        function explodeHearts() {
+            for (let j = 0; j < 30; j++) {
+                setTimeout(() => createHeart(), j * 100);
+            }
+            
+            setTimeout(() => {
+                modal.style.display = "flex";
+            }, 2000);
+        }
+
+        function closeModal() {
+            modal.style.display = "none";
+        }
+
+        // Music toggle functionality
+        musicToggle.addEventListener("click", function() {
+            if (isMusicPlaying) {
+                bgMusic.pause();
+                musicToggle.innerHTML = '<i class="fas fa-music"></i>';
+            } else {
+                bgMusic.play().catch(e => console.log("Audio play failed:", e));
+                musicToggle.innerHTML = '<i class="fas fa-pause"></i>';
+            }
+            isMusicPlaying = !isMusicPlaying;
+        });
+
+        // Close modal when clicking outside of it
+        window.onclick = function(event) {
+            if (event.target == modal) {
+                modal.style.display = "none";
+            }
+        }
+    </script>
+</body>
+</html>
