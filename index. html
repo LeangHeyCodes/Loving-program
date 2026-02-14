@@ -1,1 +1,146 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>For Jaisnavi 💕</title>
+
+<style>
+body {
+  margin: 0;
+  background: linear-gradient(to bottom, #fde2e4, #e2ece9);
+  font-family: 'Segoe UI', sans-serif;
+  text-align: center;
+  overflow: hidden;
+}
+
+h1 {
+  margin-top: 40px;
+  color: #ff6b81;
+}
+
+#message {
+  width: 80%;
+  margin: 20px auto;
+  font-size: 18px;
+  color: #555;
+  min-height: 200px;
+}
+
+button {
+  padding: 12px 25px;
+  font-size: 18px;
+  border: none;
+  border-radius: 25px;
+  cursor: pointer;
+  background: #ff8fab;
+  color: white;
+  transition: 0.3s;
+}
+
+button:hover {
+  background: #ff4d6d;
+}
+
+.heart {
+  position: absolute;
+  color: pink;
+  animation: float 6s linear infinite;
+}
+
+@keyframes float {
+  from { transform: translateY(100vh); opacity: 1; }
+  to { transform: translateY(-10vh); opacity: 0; }
+}
+</style>
+</head>
+
+<body>
+
+<h1>Happy Valentine's Day Jaisnavi 💖</h1>
+
+<div id="message"></div>
+
+<button onclick="showLove()">Will You Be My Valentine? 💍</button>
+
+<!-- Background Music (YouTube Embed) -->
+<iframe width="0" height="0"
+src="https://www.youtube.com/watch?v=byxFUKxhT3s&list=RDbyxFUKxhT3s&index=1"
+frameborder="0"
+allow="autoplay">
+</iframe>
+
+<script>
+const text = `
+Jaisnavi Saikia ❤️
+
+You light up my world, and I’m so grateful
+to have you in my life.
+
+I wrote a poem just for you 💕
+
+Though miles stretch out between our hearts,
+And distance keeps us far apart,
+I feel you near in every thought and dream.
+When I awake, it all feels real, it seems.
+
+You aren’t here to comfort me,
+But soon I hope you will be.
+A perfect, loving, sweet girl you are,
+Never truly distant, never far.
+
+This Valentine, though I cannot hold your hand
+To break the cold or help me stand,
+I send a kiss through digital space,
+Carried gently to your face.
+
+You are never far from my heart.
+I loved you then, I love you now.
+The distance is just temporary pain—
+Like waiting for a rainbow after rain.
+
+I’m counting down the days
+Until you’re here with me again.
+
+I hope this little program puts a smile on your face 💖
+
+With all my love,
+Leang Hey 💖
+`;
+
+let i = 0;
+function showLove() {
+  if (i < text.length) {
+    document.getElementById("message").innerHTML += text.charAt(i);
+    i++;
+    setTimeout(showLove, 40);
+  } else {
+    explodeHearts();
+  }
+}
+
+function createHeart() {
+  const heart = document.createElement("div");
+  heart.classList.add("heart");
+  heart.innerHTML = "💖";
+  heart.style.left = Math.random() * 100 + "vw";
+  heart.style.fontSize = Math.random() * 20 + 20 + "px";
+  document.body.appendChild(heart);
+
+  setTimeout(() => {
+    heart.remove();
+  }, 6000);
+}
+
+setInterval(createHeart, 500);
+
+function explodeHearts() {
+  for (let j = 0; j < 30; j++) {
+    createHeart();
+  }
+  alert("She said YES! 💍💕");
+}
+</script>
+
+</body>
+</html>
 
